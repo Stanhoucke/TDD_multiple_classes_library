@@ -6,11 +6,13 @@ import static org.junit.Assert.assertEquals;
 public class LibraryTest {
     private Library library;
     private Book book;
+    private Book book2;
 
     @Before
     public void before(){
         library = new Library();
         book = new Book("Dune", "Frank Herbert", "Fantasy");
+        book2 = new Book("Inverting the Pyramid", "Jonathan Wilson", "History");
     }
 
     @Test
@@ -21,6 +23,11 @@ public class LibraryTest {
     @Test
     public void hasZeroBooks(){
         assertEquals(0, library.countBooks());
+    }
+
+    @Test
+    public void hasEmptyTracker(){
+        assertEquals(0, library.countTracker());
     }
 
     @Test
@@ -45,6 +52,12 @@ public class LibraryTest {
         library.removeBook();
         assertEquals(1, library.countBooks());
         assertEquals(book, library.removeBook());
+    }
+
+    @Test
+    public void canTrackBooksByGenre(){
+        library.addBook(book);
+        assertEquals(1, library.countTracker());
     }
 
 }
