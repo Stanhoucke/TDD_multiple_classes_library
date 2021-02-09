@@ -7,11 +7,17 @@ public class BorrowerTest {
 
     private Borrower borrower;
     private Book book;
+    private Library library;
 
     @Before
     public void before(){
         borrower = new Borrower("Paul");
         book = new Book("Dune", "Frank Herbert", "Fantasy");
+        library = new Library();
+
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
     }
 
     @Test
@@ -29,5 +35,12 @@ public class BorrowerTest {
         borrower.addBook(book);
         assertEquals(1, borrower.countCollection());
     }
+
+//    @Test
+//    public void canBorrowBookFromLibrary(){
+//        borrower.borrowBookFromLibrary(library);
+//        assertEquals(1, borrower.countCollection());
+//        assertEquals(2, library.countBooks());
+//    }
 
 }

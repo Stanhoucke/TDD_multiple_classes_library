@@ -25,4 +25,8 @@ public class Borrower {
     public void addBook(Book book) {
         this.collection.add(book);
     }
+
+    public void borrowBookFromLibrary(Library library) {
+
+    }
 }
