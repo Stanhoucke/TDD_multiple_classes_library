@@ -21,6 +21,10 @@ public class Library {
         return this.books;
     }
 
+    public HashMap<String, Integer> getTracker() {
+        return this.tracker;
+    }
+
     public int countBooks() {
         return this.books.size();
     }
@@ -41,6 +45,21 @@ public class Library {
     }
 
     public void trackBook(Book book){
-        this.tracker.put(book.getGenre(), 1);
+        if (this.countTracker() == 0){
+            this.tracker.put(book.getGenre(), 1);
+        } else {
+            for(String key : this.tracker.keySet()){
+                if(book.getGenre() == key){
+                    int genreCount = this.tracker.get(key);
+                    genreCount ++;
+                    this.tracker.put(key, genreCount);
+                } else {
+                    this.tracker.put(book.getGenre(), 1);
+                }
+            }
+        }
+
     }
+
+
 }

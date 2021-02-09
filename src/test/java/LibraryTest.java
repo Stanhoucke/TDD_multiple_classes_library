@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
@@ -57,7 +59,16 @@ public class LibraryTest {
     @Test
     public void canTrackBooksByGenre(){
         library.addBook(book);
-        assertEquals(1, library.countTracker());
+        library.addBook(book);
+        library.addBook(book2);
+
+        HashMap<String, Integer> tracker = library.getTracker();
+        int genreCount = tracker.get(book.getGenre());
+        int genre2Count = tracker.get(book2.getGenre());
+
+        assertEquals(2, library.countTracker());
+        assertEquals(2, genreCount);
+        assertEquals(1, genre2Count);
     }
 
 }
