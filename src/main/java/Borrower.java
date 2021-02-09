@@ -21,4 +21,8 @@ public class Borrower {
     public int countCollection() {
         return this.collection.size();
     }
+
+    public void addBook(Book book) {
+        this.collection.add(book);
+    }
 }
