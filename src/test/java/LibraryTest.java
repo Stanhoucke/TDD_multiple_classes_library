@@ -36,7 +36,6 @@ public class LibraryTest {
         library.addBook(book);
         library.addBook(book);
         assertEquals(3, library.countBooks());
-
     }
 
 }
