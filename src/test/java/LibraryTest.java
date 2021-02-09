@@ -5,10 +5,12 @@ import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
     private Library library;
+    private Book book;
 
     @Before
     public void before(){
         library = new Library();
+        book = new Book("Dune", "Frank Herbert", "Fantasy");
     }
 
     @Test
@@ -19,6 +21,12 @@ public class LibraryTest {
     @Test
     public void hasZeroBooks(){
         assertEquals(0, library.countBooks());
+    }
+    
+    @Test
+    public void canAddBook(){
+        library.addBook(book);
+        assertEquals(1, library.countBooks());
     }
 
 }
