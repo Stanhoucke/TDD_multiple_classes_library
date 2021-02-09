@@ -22,11 +22,21 @@ public class LibraryTest {
     public void hasZeroBooks(){
         assertEquals(0, library.countBooks());
     }
-    
+
     @Test
     public void canAddBook(){
         library.addBook(book);
         assertEquals(1, library.countBooks());
+    }
+
+    @Test
+    public void doesNotAddBooksIfAtCapacity(){
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        assertEquals(3, library.countBooks());
+
     }
 
 }
